@@ -38,21 +38,17 @@ public class Oefening9 {
     }
 
     private static void oefening9B(){
+        // OEFENING MET SCHILDWACHT
         Scanner s = new Scanner(System.in);
-        int kleinste = Integer.MAX_VALUE;
-        int grootste = Integer.MIN_VALUE;
 
-        boolean doorgaan = true;
-        while (doorgaan){
-            System.out.print("Geef een getal (0 om te stoppen): ");
-            int getal = s.nextInt();
+        System.out.print("Geef een getal (0 om te stoppen): ");
+        int getal = s.nextInt();
 
-            // stopconditie
-            if (getal == 0){
-                doorgaan = false;
-                break;
-            }
 
+        int kleinste = getal, grootste = getal;
+
+
+        while (getal != 0){
             // controleren of dit het grootste/kleinste getal is
             if (getal < kleinste){
                 kleinste = getal;
@@ -60,8 +56,17 @@ public class Oefening9 {
             if (getal > grootste){
                 grootste = getal;
             }
+
+            System.out.print("Geef een getal (0 om te stoppen): ");
+            getal = s.nextInt();
         }
-        System.out.println("Het grootste van alle ingevoerde getallen is " + grootste + ".");
-        System.out.println("Het kleinste is " + kleinste + ".");
+
+        // controle om te zien of de eerste input niet direct 0 is.
+        if (kleinste == 0){
+            System.out.println("Geen getallen");
+        }else{
+            System.out.println("Het grootste van alle ingevoerde getallen is " + grootste + ".");
+            System.out.println("Het kleinste is " + kleinste + ".");
+        }
     }
 }
